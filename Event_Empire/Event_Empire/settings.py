@@ -80,11 +80,13 @@ WSGI_APPLICATION = 'Event_Empire.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'events_db',
+        'NAME': 'events',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD':'',
         'HOST': 'localhost',
-        'PORT': 3306
+        'PORT':3306
+        
+        
     }
 }
 

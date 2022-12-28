@@ -1,4 +1,6 @@
 {% load static %}
+<!DOCTYPE HTML>
+<html>
 
 <head>
     <meta charset="UTF-8" />
@@ -6,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Event Empire</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="{% static 'img/mdb-favicon.ico" type="image/x-icon' %}" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' %}" />
     <!-- Google Fonts Roboto -->
@@ -16,6 +18,8 @@
   
     <!-- Custom css -->
     <link rel="stylesheet" href="{% static 'css/custom_css/style.css' %}" />
+
+    <script src="{% static 'js/custom_js/index.js' %}"></script>
   </head>
   
   <body>
@@ -70,7 +74,7 @@
             <div class="row ">
 
                 <div class="col-md-4 mt-5 pt-3  bg-image d-flex justify-content-end h-25 ">
-                    <img src="img/ani2.png" alt="santa"  id="partyListCharacter">
+                    <img src="{% static 'images/ani2.png' %}" alt="santa"  id="partyListCharacter">
                 </div>
 
                 <!-- Parties List -->
@@ -108,6 +112,7 @@
                                     </div>
                                 </div>
 
+                                
                     
 
 
@@ -132,7 +137,8 @@
         </div>
 
 
-        <iframe width="450px" height="500px" src="{% static 'http://maps.google.com/maps?q=18.492039,73.734594&hl=es;z=14&output=embed" frameborder="1"' %}></iframe>
+        
+        <iframe width="450px" height="500px" src="http://maps.google.com/maps?q=18.492039,73.734594&hl=es;z=14&output=embed" frameborder="1"></iframe>
 
 
 
@@ -141,23 +147,28 @@
  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
  <!-- Custom scripts -->
  <script type="text/javascript"></script>
- <script src="{% static 'js/custom_js/index.js' %}"></script>
+ 
 
  <!-- Navbar bg change on scroll logic -->
  <script>
-//    const navElem = document.querySelector('.navbar');
+    const navElem = document.querySelector('.navbar');
 
-//    window.addEventListener('scroll', () => {
+   window.addEventListener('scroll', () => {
 
-//      if (window.scrollY >= 55) {
-//        navElem.classList.add('navbar-scrolled');
-//      } else if (window.scrollY < 55) {
-//        navElem.classList.remove('navbar-scrolled');
-//      }
+     if (window.scrollY >= 55) {
+       navElem.classList.add('navbar-scrolled');
+      } else if (window.scrollY < 55) {
+       navElem.classList.remove('navbar-scrolled');
+     }
 
-//    });
+   });
 
  </script>
+        
+
+
+
+ 
 
 
 

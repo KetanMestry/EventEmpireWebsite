@@ -1,4 +1,4 @@
-{% load static %}
+ {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -276,4 +276,47 @@
 
 </body>
 
-</html>
+</html> 
+
+
+{% comment %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sport</title>
+</head>
+<body>
+    
+    <table border="2px">
+        <tr>
+            <td> Party_Name</td>
+            <td>Location</td>
+            <td>Age_Criteria</td>
+            <td>Amount</td>
+            <td> Event_Details</td>
+            <td>Venue</td>
+            <td>State</td>
+            <td>Party_Starting_Date</td>
+            <td> Image</td>
+            
+        </tr>
+        {% for sport in data %}
+            <tr>
+                <td>{{sport.Party_Name}}</td>   
+                <td>{{sport.Location}}</td>   
+                <td>{{sport.Age_Criteri}}</td>   
+                <td>{{sport. Event_Details}}</td>   
+                <td>{{sport.Venue}}</td>   
+                <td>{{sport.Statet}}</td>   
+                <td>{{sport.City}}</td>   
+                <td>{{sport.Party_Starting_Date}}</td>   
+                <td>{{sport.Image}}</td>   
+            </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html> {% endcomment %}

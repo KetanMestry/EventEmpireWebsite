@@ -20,12 +20,14 @@ function changeHomeCharacter(value) {
 }
 
 
-// function changePartyListCharacter(value) {
+function changePartyListCharacter(value) {
+  let santa = "static/images/ani2.png";
+  let partyGuy = "static/images/partyCharWithBear.png";
 
-//   value == 1 ? document.getElementById('partyListCharacter').src = "static/images/ani2.png" : document.getElementById('partyListCharacter').src = "{% static 'images/partyCharWithBear.png' %}";
+  value == 1 ? document.getElementById('partyListCharacter').setAttribute("src", santa) : document.getElementById('partyListCharacter').setAttribute("src", partyGuy);
 
-//   selectedVal = value;
-// }
+  selectedVal = value;
+}
 
 
 // selectedVal == 1 ? document.getElementById('partyListCharacter').src = "static/images/ani2.png" : document.getElementById('partyListCharacter').src = "{% static 'images/partyCharWithBear.png' %}";
