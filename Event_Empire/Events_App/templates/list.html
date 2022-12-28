@@ -87,22 +87,21 @@
                         </div>
                         <div class="row">
                             <div class="card-group mb-2 mb-lg-4">
-                                <!-- Card One-->
+                              {%for party in data %}
                                
                                 <!-- Card one-->
                                 <div class="col-lg-4 my-2">
                                     <div class="card mx-2">
-                                        <img src="{% static 'images/bg1.jpg' %}" class="card-img-top" alt="One">
+                                        <img src={{party.Image}} class="card-img-top" alt="One">
                                         <div class="card-body">
-                                            <h5 class="card-title text-center text-decoration-underline">New Year Party
-                                                Two
+                                            <h5 class="card-title text-center text-decoration-underline">{{party.Party_Name }}
                                             </h5>
+
+                                          
                                             <div class="row">
-                                                <span><b>Time:</b> 11.00 PM</span>
-                                                <span> <b>Venue:</b> Lorem ipsum dolor sit amet.</span>
-                                                <span><b>Description: </b> Lorem ipsum dolor sit amet consectetur
-                                                    adipisicing elit. Fugit nemo eum mollitia, possimus quisquam libero
-                                                    quaerat doloremque dolorum. Quos, magnam. </span>
+                                                <span><b>Time:</b> {{party.Party_Starting_Date}} </span>
+                                                <span> <b>Venue:</b>{{party.Location}}</span>
+                                                <span><b>Description: </b> {{party.Event_Details}} </span>
                                             </div>
 
                                             <div class="d-flex justify-content-center mb-2 mt-2">
@@ -113,6 +112,7 @@
                                 </div>
 
                                 
+                                {% endfor %}
                     
 
 

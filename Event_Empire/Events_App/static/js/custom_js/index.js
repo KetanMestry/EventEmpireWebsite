@@ -39,3 +39,21 @@ function changePartyListCharacter(value) {
 // let dataObj =  fetch('http://api.positionstack.com/v1/forward?access_key=62f71233d2704bcee650df75457205b4&query=Cafe CO2, Pune');
 
 // console.log(dataObj.data)
+
+
+
+
+// Get parties data
+function searchParties(){
+  let elem = document.getElementById("partyTypeSelector");
+  let elemTwo = document.getElementById("selectedCity");
+  let partyStartDate;
+  if(elem.value == 1){
+    partyStartDate = "2022-12-24";
+  }else{
+    partyStartDate = "2022-12-24";
+  }
+
+  let city = elemTwo.innerHTML;
+  
+}

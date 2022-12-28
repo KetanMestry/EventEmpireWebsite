@@ -1,4 +1,4 @@
- {% load static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -127,10 +127,11 @@
             <div class="container searchBar py-4 mx-2 ">
               <div class="row d-flex align-content-around justify-content-around ">
                 <P class="h5 text-center col-xl-2">Select State:</P>
-                <select class="dropDown text-center text-white col-xl-4 h5 " name="state" id="stateSelector"
+                <select class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="state" id="stateSelector"
                   onchange="changeCharacterAnim()">
-                  <option value="1">Maharastra</option>
-                  <option value="2">Delhi</option>
+                  {% for s in data %}
+                  <option  value="1" id="selectedCity">{{s.City}}</option>
+                  {% endfor %}
                 </select>
                 <p class="h5 text-center col-xl-2">Select city:</p>
                 <select class="dropDown text-center text-white col-xl-4 h5" name="city" id="city">
@@ -156,7 +157,7 @@
         <!-- Search parties button start -->
         <div class="row my-5">
           <div class="text-center">
-            <a class="btn text-dark w-md-25 h4" style=" background-color: #F4EAD5; border: solid 1px black;"
+            <a class="btn text-dark w-md-25 h4" onclick="searchParties()" style=" background-color: #F4EAD5; border: solid 1px black;"
               href="/list">  Search parties  </a>
           </div>
         </div>
@@ -278,45 +279,3 @@
 
 </html> 
 
-
-{% comment %} 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sport</title>
-</head>
-<body>
-    
-    <table border="2px">
-        <tr>
-            <td> Party_Name</td>
-            <td>Location</td>
-            <td>Age_Criteria</td>
-            <td>Amount</td>
-            <td> Event_Details</td>
-            <td>Venue</td>
-            <td>State</td>
-            <td>Party_Starting_Date</td>
-            <td> Image</td>
-            
-        </tr>
-        {% for sport in data %}
-            <tr>
-                <td>{{sport.Party_Name}}</td>   
-                <td>{{sport.Location}}</td>   
-                <td>{{sport.Age_Criteri}}</td>   
-                <td>{{sport. Event_Details}}</td>   
-                <td>{{sport.Venue}}</td>   
-                <td>{{sport.Statet}}</td>   
-                <td>{{sport.City}}</td>   
-                <td>{{sport.Party_Starting_Date}}</td>   
-                <td>{{sport.Image}}</td>   
-            </tr>
-        {% endfor %}
-    </table>
-
-</body>
-</html> {% endcomment %}
