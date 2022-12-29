@@ -20,5 +20,8 @@ from Events_App import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home),
-    path('list/',views.list)
+    path('list/',views.list),
+    path('book/',views.book),
+    path('EventForm/',views.EventForm),
+    
 ]

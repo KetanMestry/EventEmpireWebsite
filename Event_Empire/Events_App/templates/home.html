@@ -96,9 +96,15 @@
   <div class="  position-relative " id="mid-section">
     <div class="container d-flex align-items-center justify-content-center text-center text-white  ">
 
+
+
+      
       <!-- Glass card start -->
       <div class=" container position-absolute glass-card">
 
+        
+        <form action="/list/" method="POST">
+          {% csrf_token %}
         <!-- Party type selector start -->
         <div class="row mt-5">
           <div class="col-md-12 d-flex justify-content-center">
@@ -106,15 +112,15 @@
               <span>
                 <select class="partyTypeDropDown text-white" name="partyTypeSelector" id="partyType"
                   onchange="changeHomeCharacter(this.value)">
-                  <option value="1" selected>X-mas</option>
+                  <option value="1" >X-mas</option>
                   <option value="2">New Year</option>
                 </select>
+               
               </span> party
             </p>
           </div>
         </div>
         <!-- Party type selector end -->
-
 
         <!-- Location selector start -->
 
@@ -126,18 +132,28 @@
           <div class="col-xl-8 col-md-7  col-7 mt-5">
             <div class="container searchBar py-4 mx-2 ">
               <div class="row d-flex align-content-around justify-content-around ">
-                <P class="h5 text-center col-xl-2">Select State:</P>
-                <select class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="state" id="stateSelector"
-                  onchange="changeCharacterAnim()">
+                <P class="h5 text-center col-xl-2">Select City:</P>
+                 
+               
+               
+                 <select class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="city" id="stateSelector"
+                  onchange="onStateChange()">
                   {% for s in data %}
-                  <option  value="1" id="selectedCity">{{s.City}}</option>
+                  <option name="City"  id="selectedCity" value={{s.City}} >{{s.City}}</option>
                   {% endfor %}
-                </select>
-                <p class="h5 text-center col-xl-2">Select city:</p>
-                <select class="dropDown text-center text-white col-xl-4 h5" name="city" id="city">
-                  <option value="1">Mumbai</option>
-                  <option value="2">Pune</option>
-                </select>
+
+                </select> 
+              
+                <button type="submit">submit</button></span>
+
+              </form>
+              
+                <!-- <p class="h5 text-center col-xl-2">Select city:</p> -->
+                {% comment %} <select class="dropDown text-center text-white col-xl-4 h5 bg-dark" name="city" id="city">
+                  {% for c in data %}
+                  <option  value="1" id="selectedCity">{{c.City}}</option>
+                  {% endfor %}
+                </select> {% endcomment %}
               </div>
 
             </div>
@@ -157,16 +173,19 @@
         <!-- Search parties button start -->
         <div class="row my-5">
           <div class="text-center">
-            <a class="btn text-dark w-md-25 h4" onclick="searchParties()" style=" background-color: #F4EAD5; border: solid 1px black;"
-              href="/list">  Search parties  </a>
+            <a type="submit" class="btn text-dark w-md-25 h4" onclick="searchParties()" style=" background-color: #F4EAD5; border: solid 1px black;"
+              href="/list"> Search Parties </a>
           </div>
         </div>
         <!-- Search parties button start -->
 
-
+     
       </div>
 
       <!-- Glass card end -->
+
+
+
 
     </div>
 

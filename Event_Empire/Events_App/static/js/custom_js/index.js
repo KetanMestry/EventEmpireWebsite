@@ -21,8 +21,8 @@ function changeHomeCharacter(value) {
 
 
 function changePartyListCharacter(value) {
-  let santa = "static/images/ani2.png";
-  let partyGuy = "static/images/partyCharWithBear.png";
+  let santa = "/static/images/ani2.png";
+  let partyGuy = "/static/images/partyCharWithBear.png";
 
   value == 1 ? document.getElementById('partyListCharacter').setAttribute("src", santa) : document.getElementById('partyListCharacter').setAttribute("src", partyGuy);
 
@@ -57,3 +57,4 @@ function searchParties(){
   let city = elemTwo.innerHTML;
   
 }
+
