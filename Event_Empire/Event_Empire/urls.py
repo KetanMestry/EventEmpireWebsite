@@ -22,6 +22,6 @@ urlpatterns = [
     path('',views.home),
     path('list/',views.list),
     path('book/',views.book),
-    path('EventForm/',views.EventForm),
+    
     
 ]

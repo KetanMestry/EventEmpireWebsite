@@ -110,7 +110,7 @@
           <div class="col-md-12 d-flex justify-content-center">
             <p class="h5 ">Search for
               <span>
-                <select class="partyTypeDropDown text-white" name="partyTypeSelector" id="partyType"
+                <select class="partyTypeDropDown text-white bg-dark" name="partyTypeSelector" id="partyType"
                   onchange="changeHomeCharacter(this.value)">
                   <option value="1" >X-mas</option>
                   <option value="2">New Year</option>
@@ -132,6 +132,31 @@
           <div class="col-xl-8 col-md-7  col-7 mt-5">
             <div class="container searchBar py-4 mx-2 ">
               <div class="row d-flex align-content-around justify-content-around ">
+
+                <!-- <p class="h5 text-center col-xl-2">Select State:</p> -->
+
+                <!-- <form action="/stateSelector/" method="GET">
+                  {% csrf_token %}
+               
+                 <select onchange="ChangeState()" class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="state" id="stateSelector"
+                  >
+                  {% for s in data %}
+                  <option >  {{s.State}}</a>
+                    </option>
+                  {% endfor %}
+
+                </select>  -->
+              
+
+
+                <!-- <button hidden id="stateButton" type="submit" value=""></button>
+              </span>
+
+              </form> -->
+
+
+
+
                 <P class="h5 text-center col-xl-2">Select City:</P>
                  
                
@@ -144,19 +169,12 @@
 
                 </select> 
               
-                <button type="submit">submit</button></span>
-
-              </form>
+                
               
-                <!-- <p class="h5 text-center col-xl-2">Select city:</p> -->
-                {% comment %} <select class="dropDown text-center text-white col-xl-4 h5 bg-dark" name="city" id="city">
-                  {% for c in data %}
-                  <option  value="1" id="selectedCity">{{c.City}}</option>
-                  {% endfor %}
-                </select> {% endcomment %}
-              </div>
+               
 
             </div>
+          </div>
           </div>
 
           <!-- Character img start-->
@@ -173,8 +191,8 @@
         <!-- Search parties button start -->
         <div class="row my-5">
           <div class="text-center">
-            <a type="submit" class="btn text-dark w-md-25 h4" onclick="searchParties()" style=" background-color: #F4EAD5; border: solid 1px black;"
-              href="/list"> Search Parties </a>
+            <a   
+              href="/list"><button class="btn text-dark w-md-25 h4" type="submit" onclick="searchParties()" style=" background-color: #F4EAD5; border: solid 1px black;">Search parties</button> </a>
           </div>
         </div>
         <!-- Search parties button start -->
@@ -184,7 +202,9 @@
 
       <!-- Glass card end -->
 
+      
 
+    </form>
 
 
     </div>

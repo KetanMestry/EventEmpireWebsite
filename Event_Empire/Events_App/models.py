@@ -18,6 +18,20 @@ class Event_Info(models.Model):
     Image = models.CharField(max_length=1000)
     
     
+    
+class User_Info(models.Model):
+    Full_Name = models.CharField(max_length=500)
+    Email = models.EmailField(max_length=100)
+    Address = models.CharField(max_length=500)
+    City = models.CharField(max_length=100)    
+    State = models.CharField(max_length=100)    
+    Pincode = models.BigIntegerField()
+    No_Of_Mems = models.IntegerField()
+    Contact_No = models.BigIntegerField()
+    Party_Id = models.IntegerField()
+    
+    
+    
 
     
     

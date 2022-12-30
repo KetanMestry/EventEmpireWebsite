@@ -58,3 +58,6 @@ function searchParties(){
   
 }
 
+function ChangeState(){
+  let btn = document.getElementById("stateButton").click();
+}
