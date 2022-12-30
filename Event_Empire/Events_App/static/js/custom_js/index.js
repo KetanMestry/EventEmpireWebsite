@@ -61,3 +61,21 @@ function searchParties(){
 function ChangeState(){
   let btn = document.getElementById("stateButton").click();
 }
+
+
+
+
+
+function changeAmount(){
+  let elem = document.getElementById('amountID');
+  let elemMem = document.getElementById('inputMembers');
+
+  let amount = elem.innerHTML;
+  let members = elemMem.innerHTML;
+
+  let totalAmount = amount * members;
+
+  elem.innerText = totalAmount;
+
+  console.log(totalAmount)
+}

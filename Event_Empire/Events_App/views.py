@@ -82,6 +82,8 @@ def list(request):
         
 def book(request):
     if request.method=="POST" :
+        ef = EventForm(request.POST)
+        
         Full_Name=request.POST['fname']
         Email=request.POST['email']
         Address=request.POST['add']
@@ -90,8 +92,9 @@ def book(request):
         Pincode=request.POST['pin']
         Members=request.POST['mem']
         Contact=request.POST['con']
+        Party_Id = ef.data['partyId']
         
-        p=User_Info.objects.create(Full_Name=Full_Name,Email=Email,Address=Address,City=City,State=State,Pincode=Pincode,No_Of_Mems=Members,Contact_No=Contact)
+        p=User_Info.objects.create(Full_Name=Full_Name,Email=Email,Address=Address,City=City,State=State,Pincode=Pincode,No_Of_Mems=Members,Contact_No=Contact, Party_Id = Party_Id )
         p.save()
         print(p)
         return redirect('/')
