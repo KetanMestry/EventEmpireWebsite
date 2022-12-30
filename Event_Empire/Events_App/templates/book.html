@@ -39,13 +39,46 @@
                 {% for party in partyData %}
                 <h5>{{party.Location}}</h5>
                         {% endfor %}
+                        <div class="col-md-10">
+                            {% for party in partyData %}
+                            <h5>{{party.Date}}</h5>
+                                    {% endfor %}
+                                    <div class="col-md-10">
+                                        {% for party in partyData %}
+                                        <h5>{{party.Time}}</h5>
+                                        <div class="col-md-10">
+                                            {% for party in partyData %}
+                                            <h5>{{party.Age_Criteria}}</h5>
+                                                    {% endfor %}
+                                                {% endfor %}
+                                                <div class="col-md-10">
+                                                    {% for party in partyData %}
+                                                    <h5>{{party.Amount}}</h5>
+                                                            {% endfor %}
+                                                            <div class="col-md-10">
+                                                                {% for party in partyData %}
+                                                                <h5>{{party.Venue}}</h5>
+                                                                        {% endfor %}
+                                                                        <div class="col-md-10">
+                                                                            {% for party in partyData %}
+                                                                            <h5>{{party.State}}</h5>
+                                                                                    {% endfor %}
+                                                                                              
+                                                                        <div class="col-md-10">
+                                                                            {% for party in partyData %}
+                                                                            <h5>{{party.City}}</h5>
+                                                                                    {% endfor %}
+                                    
+                
+
+
+                                                            
+
                 
                 
 
-                        <div class="col-md-10">
-                            {% for party in partyData %}
-                            <h5>{{party.Venue}}</h5>
-                                    {% endfor %}
+
+                                        
                             
             </div>
             <div class="col-md-2">
