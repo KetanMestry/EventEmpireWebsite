@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,355 +20,287 @@
     <title>Event</title>
 </head>
 
+
 <body style="background-color: #DAE2B6; ">
-    <div class="container-fluid py-2"  style="background-color: #F4EAD5;">
-        <div class="container" >
-        
+    <div class="container-fluid py-2" style="background-color: #F4EAD5;">
+        <div class="container">
+
             {% for party in partyData %}
             <img style="border: solid 2px black; border-radius: 20px; " src={{party.Image}} class="img-fluid" alt="">
             {% endfor %}
-    
-    
+
+
         </div>
 
     </div>
-    
 
 
-<div class="container">
-    <div class="row">
-            
-                <div class="col-12">
-                    {% for party in partyData %}
-                    <p class="h1">{{party.Party_Name}}<p>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+                {% for party in partyData %}
+                <p class="h1">{{party.Party_Name}}
+                <p>
                     {% endfor %}
-               
-                    
-                </div>
-    
-       
+
+
+            </div>
+
+
+        </div>
+
     </div>
-        
-</div>
-           
-</div>
 
-        
+    </div>
 
-        <div class="container my-2">
-            <h5 class=" h1">ABOUT EVENT:</h5>
-            <div class="glass-card-list p-2">
+
+
+    <div class="container my-2">
+        <h5 class=" h1">ABOUT EVENT:</h5>
+        <div class="row">
+            <div class="glass-card-list p-2 col-10 h-100">
+
                 <div class="row">
-                    
+
                     <div class="col-md-10">
                         <h3>Description:</h3>
                         {% for party in partyData %}
                         <h5>{{party.Event_Details}}</h5>
                         {% endfor %}</p>
                     </div>
-                    </div>
-        
-                    <div class="row">
-                       
-                        <div class="col-md-10">
-                            
-                            <svg class="d-inline" xmlns="http://www.w3.org/2000/svg" width="30" height="28" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                              </svg>
-                            {% for party in partyData %}
-                            <h4 class="d-inline">{{party.Location}}</h4>
-                            {% endfor %}
-                       
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-10">
-                            {% for party in partyData %}
-                            <h5>{{party.Date}} {{party.Time}}</h5>
-                            {% endfor %}
-                        </div>
-                        </div>
-        
-                            <div class="row">
-                                <div class="col-md-10">
-                                    {% for party in partyData %}
-                                    {% if party.Age_Criteria == 1 %}
-                                    <h5>Family Friendly</h5>
-                                    {% elif party.Age_Criteria == 2%}
-                                    <h5>Family Friendly</h5>
-                                    {% elif party.Age_Criteria == 3%}
-                                    <h5>20+ only</h5>
-                                    {% elif party.Age_Criteria == 4%}
-                                    <h5>18+ only</h5>
-                                    {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div>
-                               
-                            
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            {% for party in partyData %}
-                                            <h5>{{party.Amount}}</h5>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            {% for party in partyData %}
-                                            <h5>{{party.Venue}}</h5>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                       
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            {% for party in partyData %}
-                                            <h5>{{party.State}}</h5>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                            
-                                    <div class="row">
-                                        <div class="col-md-10">
-                                            {% for party in partyData %}
-                                            <h5>{{party.City}}</h5>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-        
-                     <div class="row ">
-                    <div class="text-center">
-                        <button  type="button" class="btn btn-primary col-2 " data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" data-bs-whatever="@mdo">BOOK</button>
-                    </div>
-                        
-        
                 </div>
-                       
+
+                <div class="row">
+
+                    <div class="col-md-10">
+
+                        <svg class="d-inline" style="position: relative ; bottom: 0.2rem;"
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="28" fill="currentColor"
+                            class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                        </svg>
+                        {% for party in partyData %}
+                        <h4 class="d-inline" id="eLocation">{{party.Venue}}</h4>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <svg class="d-inline" xmlns="http://www.w3.org/2000/svg" width="26" height="25"
+                            fill="currentColor" class="bi bi-alarm-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M6 .5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H9v1.07a7.001 7.001 0 0 1 3.274 12.474l.601.602a.5.5 0 0 1-.707.708l-.746-.746A6.97 6.97 0 0 1 8 16a6.97 6.97 0 0 1-3.422-.892l-.746.746a.5.5 0 0 1-.707-.708l.602-.602A7.001 7.001 0 0 1 7 2.07V1h-.5A.5.5 0 0 1 6 .5zm2.5 5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM11.613 1.86a2.5 2.5 0 1 1 3.527 3.527 8.035 8.035 0 0 0-3.527-3.527z" />
+                        </svg>
+                        {% for party in partyData %}
+                        <h5 class="d-inline">{{party.Date}} {{party.Time}}</h5>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10">
+
+                        <h3 class="h5 d-inline">Age Criteria:</h3>
+
+                        {% for party in partyData %}
+                        {% if party.Age_Criteria == 1 %}
+                        <h5 class="d-inline">Family Friendly</h5>
+                        {% elif party.Age_Criteria == 2%}
+                        <h5 class="d-inline">Family Friendly</h5>
+                        {% elif party.Age_Criteria == 3%}
+                        <h5 class="d-inline">20+ only</h5>
+                        {% elif party.Age_Criteria == 4%}
+                        <h5 class="d-inline">18+ only</h5>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <svg class="d-inline" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                            fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                            <path
+                                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z" />
+                        </svg>
+                        {% for party in partyData %}
+                        {% load humanize %}
+                        <h5 class="d-inline">{{party.Amount|intcomma}}</h5>
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="row">
+                <div class="col-md-10">
+                    {% for party in partyData %}
+                    <h5>{{party.State}}</h5>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    {% for party in partyData %}
+                    <h5>{{party.City}}</h5>
+                    {% endfor %}
+                </div>
+            </div> -->
+
+                <div class="row mt-5 pt-5">
+                    <div class="text-center">
+                        <button type="button" class="btn btn-dark col-2 " data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" data-bs-whatever="@mdo">BOOK</button>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-2"> <iframe id="mapFrame" width="450rem" height="420rem"
+                    src=""
+                    frameborder="1"></iframe></div>
         </div>
     </div>
-       
-                         <div class="col-md-2">
-                                        
-                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <form method="POST" action="/book/">
-                                                   
-                                                    {% for party in partyData %}
-                                                    <input hidden name="partyId" type="text" value={{party.id}}>
-                                                    {% endfor %}
-                                                  
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">USER
-                                                                DETAILS</h5>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    {% csrf_token %}
-                                                                    <div class="col-md-12">
 
-                                                                        <label for="inputFullname"
-                                                                            class="form-label">Full Name</label>
-                                                                        <input type="text" name="fname"
-                                                                            class="form-control" id="inputFullname">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label for="inputEmail"
-                                                                            class="form-label">Email</label>
-                                                                        <input type="email" name="email"
-                                                                            class="form-control" id="inputEmail">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label for="inputContact"
-                                                                            class="form-label">Contact</label>
-                                                                        <input type="Contact" name="con"
-                                                                            class="form-control" id="inputContact">
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <label
-                                                                            for="floatingTextarea2">Address</label>
-                                                                        <div class="form-floating">
-                                                                            <textarea class="form-control"
-                                                                                name="add" placeholder="Address"
-                                                                                id="floatingTextarea2"
-                                                                                style="height: 100px">
+
+
+
+    <div class="col-md-2">
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form method="POST" action="/book/">
+
+                    {% for party in partyData %}
+                    <input hidden name="partyId" type="text" value={{party.id}}>
+                    {% endfor %}
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">USER
+                                DETAILS</h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    {% csrf_token %}
+                                    <div class="col-md-12">
+
+                                        <label for="inputFullname" class="form-label">Full Name</label>
+                                        <input type="text" name="fname" class="form-control" id="inputFullname">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="inputEmail" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="inputEmail">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="inputContact" class="form-label">Contact</label>
+                                        <input type="Contact" name="con" class="form-control" id="inputContact">
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="floatingTextarea2">Address</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="add" placeholder="Address"
+                                                id="floatingTextarea2" style="height: 100px">
                                                                             </textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <label for="inputCity"
-                                                                            class="form-label">City</label>
-                                                                        <input type="text" name="city"
-                                                                            class="form-control" id="inputCity">
-                                                                    </div>
-                                                                    <div class="col-md-5">
-                                                                        <label for="inputState"
-                                                                            class="form-label">State</label>
-                                                                        <input type="text" name="state"
-                                                                            class="form-control" id="inputState">
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="inputPincode"
-                                                                            class="form-label">Pincode</label>
-                                                                        <input type="text" name="pin"
-                                                                            class="form-control" id="inputPincode">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label for="inputMembers"
-                                                                            class="form-label">Members</label>
-                                                                        <input type="number" name="mem"
-                                                                            class="form-control" id="inputMembers" onchange="changeAmount()">
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <div class="form-check">
-                                                                            <input class="form-check-input"
-                                                                                type="checkbox" id="gridCheck">
-                                                                            <label class="form-check-label"
-                                                                                for="gridCheck">
-                                                                                *Accept all terms and conditions
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <div class="col">
-                                                                <label for="inputAmount"
-                                                                    class="form-label">Amount</label>
-                                                                    {% for party in partyData %}
-                                                                    <h1 id="amountID">{{party.Amount}}</h1>
-                                                                    {% endfor %}
-                                                            </div>
-                                                            <button type="submit" class="btn btn-primary">Book
-                                                                Ticket</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
                                         </div>
                                     </div>
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-<div class="container">
-    
-    <div class="modal fade" id="exampleModal" tabindex="-1"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        USER DETAILS</h5>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form class="row">
-                            <div class="col-md-12">
-                                <label for="inputFullname"
-                                    class="form-label">Full
-                                    Name</label>
-                                <input type="email"
-                                    class="form-control"
-                                    id="inputFullname">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="inputEmail"
-                                    class="form-label">Email</label>
-                                <input type="email"
-                                    class="form-control"
-                                    id="inputEmail">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="inputContact"
-                                    class="form-label">Contact</label>
-                                <input type="Contact"
-                                    class="form-control"
-                                    id="inputContact">
-                            </div>
-                            <div class="col-12">
-                                <label
-                                    for="floatingTextarea2">Address</label>
-                                <div class="form-floating">
-                                    <textarea class="form-control"
-                                        placeholder="Address"
-                                        id="floatingTextarea2"
-                                        style="height: 100px">
-    </textarea>
+                                    <div class="col-md-4">
+                                        <label for="inputCity" class="form-label">City</label>
+                                        <input type="text" name="city" class="form-control" id="inputCity">
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="inputState" class="form-label">State</label>
+                                        <input type="text" name="state" class="form-control" id="inputState">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPincode" class="form-label">Pincode</label>
+                                        <input type="text" name="pin" class="form-control" id="inputPincode">
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="inputMembers" class="form-label" >Members</label>
+                                        <input type="number" name="mem" class="form-control" id="inputMembers"
+                                            onchange="changeAmount()">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gridCheck" >
+                                            <label class="form-check-label" for="gridCheck">
+                                                *Accept all terms and conditions
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div class="col-md-4">
-                                <label for="inputCity"
-                                    class="form-label">City</label>
-                                <input type="text"
-                                    class="form-control"
-                                    id="inputCity">
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col">
+                                <label for="inputAmount" class="form-label">Amount</label>
+                                {% for party in partyData %}
+                                <h1 id="amountID">{{party.Amount }}</h1>
+                                {% endfor %}
                             </div>
-                            <div class="col-md-5">
-                                <label for="inputState"
-                                    class="form-label">State</label>
-                                <input type="text"
-                                    class="form-control"
-                                    id="inputState">
-                            </div>
-                            <div class="col-md-3">
-                                <label for="inputPincode"
-                                    class="form-label">Pincode</label>
-                                <input type="text"
-                                    class="form-control"
-                                    id="inputPincode">
-                            </div>
-                            <div class="col-md-12">
-                                <label for="inputMembers"
-                                    class="form-label">Members</label>
-                                <input type="number"
-                                    class="form-control"
-                                    id="inputMembers">
-                            </div>
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input class="form-check-input"
-                                        type="checkbox"
-                                        id="gridCheck">
-                                    <label class="form-check-label"
-                                        for="gridCheck">
-                                        *Accept all terms and
-                                        conditions
-                                    </label>
-                                </div>
-                            </div>
-                        </form>
+                            <button type="submit" class="btn btn-outline-dark ">Book
+                                Ticket</button>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="col">
-                        <label for="inputAmount"
-                            class="form-label">Amount</label>
-                        <input type="text" class="form-control"
-                            id="inputAmount">
-                    </div>
-                    <button type="button"
-                        class="btn btn-primary">Book Ticket</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-</div>
+
+
+    <script>
+        window.onload = async function () {
+           
+            let api_key = "62f71233d2704bcee650df75457205b4"
+
+            
+            let event_location = document.getElementById("eLocation").innerHTML;
+
+          
+
+            let lat;
+            let lng;
+            const response = await fetch("http://api.positionstack.com/v1/forward?access_key=" + api_key + "&query=" + event_location);
+            const position_data = await response.json();
+            console.log(position_data.data);
+
+            if (position_data.data.length == 0) {
+                // console.log("no location data found")
+                return;
+            }
+
+            position_data.data.forEach(position => {
+                if (position.country == "India") {
+                    lat = position.latitude;
+                    lng = position.longitude;
+                    // console.log("location in india")
+                    document.getElementById("mapFrame").setAttribute("src", "http://maps.google.com/maps?q=" + lat + "," + lng + "&hl=es;z=14&output=embed")
+                }
+                else {
+                    // console.log("location outside india")
+                }
+            }
+            )
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

@@ -5,7 +5,6 @@
 //   // console.log("changed");
 // }
 
-let selectedVal = 0;
 
 function changeHomeCharacter(value) {
 
@@ -15,8 +14,7 @@ function changeHomeCharacter(value) {
 
   value == 1 ? document.getElementById('homeCharacter').setAttribute("src", santa) : document.getElementById('homeCharacter').setAttribute("src", partyGuy);
 
-
-    // selectedVal = value;
+  
 }
 
 
@@ -25,12 +23,50 @@ function changePartyListCharacter(value) {
   let partyGuy = "/static/images/partyCharWithBear.png";
 
   value == 1 ? document.getElementById('partyListCharacter').setAttribute("src", santa) : document.getElementById('partyListCharacter').setAttribute("src", partyGuy);
-
-  selectedVal = value;
+  let btnOne = document.getElementById("xMasBtn");
+  let btnTwo = document.getElementById("newYearBtn");
+  if(value == 1){
+      if(!btnOne.classList.contains("btn-dark"))
+      {
+         btnOne.classList.add("btn-dark");
+         btnTwo.classList.remove("btn-dark")
+         btnOne.classList.remove("btn-outline-dark")
+      }else{
+        btnOne.classList.add("btn-outline-dark");
+        btnTwo.classList.remove("btn-outline-dark");
+        btnOne.classList.remove("btn-dark");
+      }
+  }else{
+    if(!btnTwo.classList.contains("btn-dark"))
+    {
+       btnTwo.classList.add("btn-dark");
+       btnOne.classList.remove("btn-dark");
+       btnTwo.classList.remove("btn-outline-dark")
+    }else{
+      btnTwo.classList.add("btn-outline-dark");
+      btnOne.classList.remove("btn-outline-dark");
+      btnTwo.classList.remove("btn-dark")
+    }
+  }
+ 
 }
 
 
-// selectedVal == 1 ? document.getElementById('partyListCharacter').src = "static/images/ani2.png" : document.getElementById('partyListCharacter').src = "{% static 'images/partyCharWithBear.png' %}";
+function selectedParty(value){
+
+  let btnOne = document.getElementById("xMasBtn");
+  let btnTwo = document.getElementById("newYearBtn");
+  if(value == "1"){
+    btnOne.classList.add("btn-dark");
+    btnTwo.classList.add("btn-outline-dark")
+   
+  }else{
+    btnTwo.classList.add("btn-dark");
+    btnOne.classList.add("btn-outline-dark")
+  }
+}
+
+
 
 
 
@@ -43,36 +79,18 @@ function changePartyListCharacter(value) {
 
 
 
-// Get parties data
-function searchParties(){
-  let elem = document.getElementById("partyTypeSelector");
-  let elemTwo = document.getElementById("selectedCity");
-  let partyStartDate;
-  if(elem.value == 1){
-    partyStartDate = "2022-12-24";
-  }else{
-    partyStartDate = "2022-12-24";
-  }
-
-  let city = elemTwo.innerHTML;
-  
-}
-
-function ChangeState(){
-  let btn = document.getElementById("stateButton").click();
-}
 
 
 
-function cardClicked(){
-  elem =  document.getElementById("cardButton")
+function cardClicked() {
+  elem = document.getElementById("cardButton")
   console.log(elem)
 }
 
 
 
 
-function changeAmount(){
+function changeAmount() {
   let elem = document.getElementById('amountID');
   let elemMem = document.getElementById('inputMembers');
 
@@ -93,13 +111,13 @@ function showhideimg() {
   var chatwindow = document.getElementById("chatwindow");
   var closeimg = document.getElementById("closeimg");
   if (img.style.display === "none") {
-      img.style.display = "block";
-      chatwindow.style.display = "none";
-      closeimg.style.display = "none"
+    img.style.display = "block";
+    chatwindow.style.display = "none";
+    closeimg.style.display = "none"
   }
   else {
-      img.style.display = "none";
-      chatwindow.style.display = "block";
-      closeimg.style.display = "block";
+    img.style.display = "none";
+    chatwindow.style.display = "block";
+    closeimg.style.display = "block";
   }
 }

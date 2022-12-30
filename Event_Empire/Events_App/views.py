@@ -65,19 +65,24 @@ def list(request):
         else:
             partyType = 2
             
-            
-        print(ct)
-        print(partyType)
+       
 
         if ef.is_valid():
             pt = ef.cleand_data["Party_Type"]
      
             
-        event = Event_Info.objects.values().filter(City__icontains=ct, Party_Type=partyType)
+        event = Event_Info.objects.values().filter(City__icontains=ct,Party_Type= partyType)
         
-        return render(request,"list.html" ,{'data': event})
-    
-
+        return render(request,"list.html" ,{'data': event, 'pType':partyType, 'selCity':ct } )
+    elif request.method =="GET":
+        ef = EventForm(request.GET)
+      
+        selectedPartyType = ef.data['pVal']
+        selectedCity = ef.data['cVal']
+             
+        event = Event_Info.objects.values().filter( City__icontains=selectedCity,Party_Type= selectedPartyType)
+        
+        return render(request,"list.html" ,{'data': event,'pType':selectedPartyType, 'selCity':selectedCity } )
 
 
         
