@@ -70,6 +70,16 @@
     box-shadow: 5px 8px 10px rgba(45, 55, 68, 0.3);
 }
 
+.glass-card-list{
+    z-index: 5;
+    backdrop-filter: blur(2rem);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    height: 100%;
+    border: 2px solid transparent;
+    box-shadow: 5px 8px 10px rgba(45, 55, 68, 0.3);
+}
+
 .searchBar {
     border-style: solid;
     border-radius: 50px;
@@ -162,3 +172,5 @@ label {
     max-width: 100%;
     height: auto;
 }
+
+

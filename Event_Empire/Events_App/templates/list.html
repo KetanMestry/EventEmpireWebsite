@@ -71,49 +71,54 @@
 
         <!-- Parties List & Character -->
         <div class="container-fluid " >
-            <div class="row ">
+          <div class="container">
+            <div class="row" >
+              <div class="col-12 ms-3">
+                  <h1 class="text-dark text-start h3">Available Parties</h1>
+              </div>
+          </div>
+          
+        </div>
+            <div class="row glass-card-list">
 
-                <div class="col-md-4 mt-5 pt-3  bg-image d-flex justify-content-end h-25 ">
+                <div class="col-md-2 mt-5 pt-3  bg-image d-flex justify-content-end h-25 ">
                     <img src="{% static 'images/ani2.png' %}" alt="santa"  id="partyListCharacter">
                 </div>
 
                 <!-- Parties List -->
-                <div class="col-md-8 ">
+                <div class="col-md-10 ">
                     <div class="container">
-                        <div class="row" >
-                            <div class="col-12 ms-3">
-                                <h1 class="text-dark text-start h3">Available Parties</h1>
-                            </div>
-                        </div>
+                        
                         <div class="row">
+                          
                             <div class="card-group mb-2 mb-lg-4">
+                             
                               {%for party in data %}
-                               <form action="/book/" method="GET">
-                                {% csrf_token %}
-
+                          <form action="/book/" method="GET"  class="col-lg-4 my-2">
+                           {% csrf_token %}
                                
                                 <!-- Card one-->
-                                <div class="col-lg-4 my-2">
-                                    <div class="card mx-2">
+                               
+                                    <div class="card mx-2" >
                                       <input hidden name="eventId" type="number"  value={{party.id}}>
-                                        <img src={{party.Image}} class="card-img-top" alt="One">
-                                        <div class="card-body">
-                                            <h5 class="card-title text-center text-decoration-underline">{{party.Party_Name }}
-                                            </h5>
-
-                                          
+                                        <img src={{party.Image}} class="card-img-top" style="height: 20rem;" alt="eventImg">
+                                        <div class="card-body" style="max-height: 18rem;">
+                                            <h5 class="card-title text-center ">{{party.Party_Name}}
+                                            </h5>                                          
                                             <div class="row">
                                                 <span><b>Time:</b> {{party.Time}} </span>
                                                 <span> <b>Venue:</b>{{party.Location}}</span>
-                                                <span><b>Description: </b> {{party.Event_Details}} </span>
+                                                <span><b>Description: </b> <span> <p style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{party.Event_Details}} <button  type="submit" id="cardButton" class=" d-flex justify-content-end" style="border-style: hidden; background-color: transparent;" >See more</button></p>
+                                                </span>
+                                                
+                                                </span>
                                             </div>
 
-                                            <div class="d-flex justify-content-center mb-2 mt-2">
-                                              <a href="/book">  <button type="submit" class="btn btn-outline-dark">Book</button></a>
-                                            </div>
+                                            
+                                            
                                         </div>
                                     </div>
-                                </div>
+                               
 
                               </form>
                                 {% endfor %}
@@ -142,7 +147,7 @@
 
 
         
-        <iframe width="450px" height="500px" src="http://maps.google.com/maps?q=18.492039,73.734594&hl=es;z=14&output=embed" frameborder="1"></iframe>
+        {% comment %} <iframe width="450px" height="500px" src="http://maps.google.com/maps?q=18.492039,73.734594&hl=es;z=14&output=embed" frameborder="1"></iframe> {% endcomment %}
 
 
 

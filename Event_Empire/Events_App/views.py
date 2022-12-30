@@ -60,18 +60,21 @@ def list(request):
         pt=ef.data["partyTypeSelector"]
    
         if( int(pt) == 1):
-            partyType = "24-12-2022"
+            partyType = 1
+           
         else:
-            partyType = "31-12-2022"
+            partyType = 2
             
-        print(pt)
+            
+        print(ct)
         print(partyType)
 
         if ef.is_valid():
             pt = ef.cleand_data["Party_Type"]
      
             
-        event = Event_Info.objects.filter(City=ct, Date=partyType)
+        event = Event_Info.objects.values().filter(City__icontains=ct, Party_Type=partyType)
+        
         return render(request,"list.html" ,{'data': event})
     
 
@@ -112,6 +115,6 @@ def book(request):
         event = Event_Info.objects.filter(id=pId)
         
         
-        # print("****************************", event.Party_Name)
+       
         return render(request,"book.html",{'partyData':event} )
         # return HttpResponseRedirect("/book/")

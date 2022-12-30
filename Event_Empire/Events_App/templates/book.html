@@ -19,313 +19,355 @@
     <title>Event</title>
 </head>
 
-<body>
-    <div class="container">
-        {% for party in partyData %}
-        <img src={{party.Image}} class="img-fluid" alt="">
-        {% endfor %}
-
+<body style="background-color: #DAE2B6; ">
+    <div class="container-fluid py-2"  style="background-color: #F4EAD5;">
+        <div class="container" >
+        
+            {% for party in partyData %}
+            <img style="border: solid 2px black; border-radius: 20px; " src={{party.Image}} class="img-fluid" alt="">
+            {% endfor %}
+    
+    
+        </div>
 
     </div>
+    
 
 
-    <div class="card-footer floatingTextarea2">
-        <div class="row">
-            <div class="col-md-12">
-
-                {% for party in partyData %}
-                <h1>{{party.Party_Name}}</h1>
-                {% endfor %}
-            </div>
-            <div class="col-md-10">
-                {% for party in partyData %}
-                <h5>{{party.Location}}</h5>
-                {% endfor %}
-                <div class="col-md-10">
+<div class="container">
+    <div class="row">
+            
+                <div class="col-12">
                     {% for party in partyData %}
-                    <h5>{{party.Date}}</h5>
+                    <p class="h1">{{party.Party_Name}}<p>
                     {% endfor %}
+               
+                    
+                </div>
+    
+       
+    </div>
+        
+</div>
+           
+</div>
+
+        
+
+        <div class="container my-2">
+            <h5 class=" h1">ABOUT EVENT:</h5>
+            <div class="glass-card-list p-2">
+                <div class="row">
+                    
                     <div class="col-md-10">
+                        <h3>Description:</h3>
                         {% for party in partyData %}
-                        <h5>{{party.Time}}</h5>
+                        <h5>{{party.Event_Details}}</h5>
+                        {% endfor %}</p>
+                    </div>
+                    </div>
+        
+                    <div class="row">
+                       
+                        <div class="col-md-10">
+                            
+                            <svg class="d-inline" xmlns="http://www.w3.org/2000/svg" width="30" height="28" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                              </svg>
+                            {% for party in partyData %}
+                            <h4 class="d-inline">{{party.Location}}</h4>
+                            {% endfor %}
+                       
+                        </div>
+                    </div>
+
+
+                    <div class="row">
                         <div class="col-md-10">
                             {% for party in partyData %}
-                            <h5>{{party.Age_Criteria}}</h5>
+                            <h5>{{party.Date}} {{party.Time}}</h5>
                             {% endfor %}
-                            {% endfor %}
-                            <div class="col-md-10">
-                                {% for party in partyData %}
-                                <h5>{{party.Amount}}</h5>
-                                {% endfor %}
+                        </div>
+                        </div>
+        
+                            <div class="row">
                                 <div class="col-md-10">
                                     {% for party in partyData %}
-                                    <h5>{{party.Venue}}</h5>
+                                    {% if party.Age_Criteria == 1 %}
+                                    <h5>Family Friendly</h5>
+                                    {% elif party.Age_Criteria == 2%}
+                                    <h5>Family Friendly</h5>
+                                    {% elif party.Age_Criteria == 3%}
+                                    <h5>20+ only</h5>
+                                    {% elif party.Age_Criteria == 4%}
+                                    <h5>18+ only</h5>
+                                    {% endif %}
                                     {% endfor %}
-                                    <div class="col-md-10">
-                                        {% for party in partyData %}
-                                        <h5>{{party.State}}</h5>
-                                        {% endfor %}
-
+                                </div>
+                            </div>
+                               
+                            
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            {% for party in partyData %}
+                                            <h5>{{party.Amount}}</h5>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            {% for party in partyData %}
+                                            <h5>{{party.Venue}}</h5>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                       
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            {% for party in partyData %}
+                                            <h5>{{party.State}}</h5>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                            
+                                    <div class="row">
                                         <div class="col-md-10">
                                             {% for party in partyData %}
                                             <h5>{{party.City}}</h5>
                                             {% endfor %}
-
-
-
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">BOOK</button>
-                                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <form method="POST" action="/book/">
-                                                       
-                                                        {% for party in partyData %}
-                                                        <input hidden name="partyId" type="text" value={{party.id}}>
-                                                        {% endfor %}
-                                                      
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">USER
-                                                                    DETAILS</h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="container">
-                                                                    <div class="row">
-                                                                        {% csrf_token %}
-                                                                        <div class="col-md-12">
-
-                                                                            <label for="inputFullname"
-                                                                                class="form-label">Full Name</label>
-                                                                            <input type="text" name="fname"
-                                                                                class="form-control" id="inputFullname">
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <label for="inputEmail"
-                                                                                class="form-label">Email</label>
-                                                                            <input type="email" name="email"
-                                                                                class="form-control" id="inputEmail">
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <label for="inputContact"
-                                                                                class="form-label">Contact</label>
-                                                                            <input type="Contact" name="con"
-                                                                                class="form-control" id="inputContact">
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <label
-                                                                                for="floatingTextarea2">Address</label>
-                                                                            <div class="form-floating">
-                                                                                <textarea class="form-control"
-                                                                                    name="add" placeholder="Address"
-                                                                                    id="floatingTextarea2"
-                                                                                    style="height: 100px">
-                                                                                </textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-4">
-                                                                            <label for="inputCity"
-                                                                                class="form-label">City</label>
-                                                                            <input type="text" name="city"
-                                                                                class="form-control" id="inputCity">
-                                                                        </div>
-                                                                        <div class="col-md-5">
-                                                                            <label for="inputState"
-                                                                                class="form-label">State</label>
-                                                                            <input type="text" name="state"
-                                                                                class="form-control" id="inputState">
-                                                                        </div>
-                                                                        <div class="col-md-3">
-                                                                            <label for="inputPincode"
-                                                                                class="form-label">Pincode</label>
-                                                                            <input type="text" name="pin"
-                                                                                class="form-control" id="inputPincode">
-                                                                        </div>
-                                                                        <div class="col-md-12">
-                                                                            <label for="inputMembers"
-                                                                                class="form-label">Members</label>
-                                                                            <input type="number" name="mem"
-                                                                                class="form-control" id="inputMembers" onchange="changeAmount()">
-                                                                        </div>
-                                                                        <div class="col-12">
-                                                                            <div class="form-check">
-                                                                                <input class="form-check-input"
-                                                                                    type="checkbox" id="gridCheck">
-                                                                                <label class="form-check-label"
-                                                                                    for="gridCheck">
-                                                                                    *Accept all terms and conditions
-                                                                                </label>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-
-
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <div class="col">
-                                                                    <label for="inputAmount"
-                                                                        class="form-label">Amount</label>
-                                                                        {% for party in partyData %}
-                                                                        <h1 id="amountID">{{party.Amount}}</h1>
-                                                                        {% endfor %}
-                                                                </div>
-                                                                <button type="submit" class="btn btn-primary">Book
-                                                                    Ticket</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                                    <hr>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="card2">
-                                            <div class="card-body2">
-                                                <h5 class="card-title">ABOUT EVENT</h5>
-                                                <p class="card-text">
-                                                <div class="col-md-10">
+        
+                     <div class="row ">
+                    <div class="text-center">
+                        <button  type="button" class="btn btn-primary col-2 " data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" data-bs-whatever="@mdo">BOOK</button>
+                    </div>
+                        
+        
+                </div>
+                       
+        </div>
+    </div>
+       
+                         <div class="col-md-2">
+                                        
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <form method="POST" action="/book/">
+                                                   
                                                     {% for party in partyData %}
-                                                    <h5>{{party.Event_Details}}</h5>
-                                                    {% endfor %}</p>
+                                                    <input hidden name="partyId" type="text" value={{party.id}}>
+                                                    {% endfor %}
+                                                  
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">USER
+                                                                DETAILS</h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    {% csrf_token %}
+                                                                    <div class="col-md-12">
 
-
-
-                                                    <div class="container">
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                            data-bs-whatever="@mdo">BOOK</button>
-                                                        <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalLabel">
-                                                                            USER DETAILS</h5>
+                                                                        <label for="inputFullname"
+                                                                            class="form-label">Full Name</label>
+                                                                        <input type="text" name="fname"
+                                                                            class="form-control" id="inputFullname">
                                                                     </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="container">
-                                                                            <form class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <label for="inputFullname"
-                                                                                        class="form-label">Full
-                                                                                        Name</label>
-                                                                                    <input type="email"
-                                                                                        class="form-control"
-                                                                                        id="inputFullname">
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <label for="inputEmail"
-                                                                                        class="form-label">Email</label>
-                                                                                    <input type="email"
-                                                                                        class="form-control"
-                                                                                        id="inputEmail">
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <label for="inputContact"
-                                                                                        class="form-label">Contact</label>
-                                                                                    <input type="Contact"
-                                                                                        class="form-control"
-                                                                                        id="inputContact">
-                                                                                </div>
-                                                                                <div class="col-12">
-                                                                                    <label
-                                                                                        for="floatingTextarea2">Address</label>
-                                                                                    <div class="form-floating">
-                                                                                        <textarea class="form-control"
-                                                                                            placeholder="Address"
-                                                                                            id="floatingTextarea2"
-                                                                                            style="height: 100px">
-                                                        </textarea>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-4">
-                                                                                    <label for="inputCity"
-                                                                                        class="form-label">City</label>
-                                                                                    <input type="text"
-                                                                                        class="form-control"
-                                                                                        id="inputCity">
-                                                                                </div>
-                                                                                <div class="col-md-5">
-                                                                                    <label for="inputState"
-                                                                                        class="form-label">State</label>
-                                                                                    <input type="text"
-                                                                                        class="form-control"
-                                                                                        id="inputState">
-                                                                                </div>
-                                                                                <div class="col-md-3">
-                                                                                    <label for="inputPincode"
-                                                                                        class="form-label">Pincode</label>
-                                                                                    <input type="text"
-                                                                                        class="form-control"
-                                                                                        id="inputPincode">
-                                                                                </div>
-                                                                                <div class="col-md-12">
-                                                                                    <label for="inputMembers"
-                                                                                        class="form-label">Members</label>
-                                                                                    <input type="number"
-                                                                                        class="form-control"
-                                                                                        id="inputMembers">
-                                                                                </div>
-                                                                                <div class="col-12">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input"
-                                                                                            type="checkbox"
-                                                                                            id="gridCheck">
-                                                                                        <label class="form-check-label"
-                                                                                            for="gridCheck">
-                                                                                            *Accept all terms and
-                                                                                            conditions
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </form>
+                                                                    <div class="col-md-12">
+                                                                        <label for="inputEmail"
+                                                                            class="form-label">Email</label>
+                                                                        <input type="email" name="email"
+                                                                            class="form-control" id="inputEmail">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <label for="inputContact"
+                                                                            class="form-label">Contact</label>
+                                                                        <input type="Contact" name="con"
+                                                                            class="form-control" id="inputContact">
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <label
+                                                                            for="floatingTextarea2">Address</label>
+                                                                        <div class="form-floating">
+                                                                            <textarea class="form-control"
+                                                                                name="add" placeholder="Address"
+                                                                                id="floatingTextarea2"
+                                                                                style="height: 100px">
+                                                                            </textarea>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="modal-footer">
-                                                                        <div class="col">
-                                                                            <label for="inputAmount"
-                                                                                class="form-label">Amount</label>
-                                                                            <input type="text" class="form-control"
-                                                                                id="inputAmount">
+                                                                    <div class="col-md-4">
+                                                                        <label for="inputCity"
+                                                                            class="form-label">City</label>
+                                                                        <input type="text" name="city"
+                                                                            class="form-control" id="inputCity">
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <label for="inputState"
+                                                                            class="form-label">State</label>
+                                                                        <input type="text" name="state"
+                                                                            class="form-control" id="inputState">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="inputPincode"
+                                                                            class="form-label">Pincode</label>
+                                                                        <input type="text" name="pin"
+                                                                            class="form-control" id="inputPincode">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <label for="inputMembers"
+                                                                            class="form-label">Members</label>
+                                                                        <input type="number" name="mem"
+                                                                            class="form-control" id="inputMembers" onchange="changeAmount()">
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <div class="form-check">
+                                                                            <input class="form-check-input"
+                                                                                type="checkbox" id="gridCheck">
+                                                                            <label class="form-check-label"
+                                                                                for="gridCheck">
+                                                                                *Accept all terms and conditions
+                                                                            </label>
                                                                         </div>
-                                                                        <button type="button"
-                                                                            class="btn btn-primary">Book Ticket</button>
                                                                     </div>
                                                                 </div>
+
                                                             </div>
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="col">
+                                                                <label for="inputAmount"
+                                                                    class="form-label">Amount</label>
+                                                                    {% for party in partyData %}
+                                                                    <h1 id="amountID">{{party.Amount}}</h1>
+                                                                    {% endfor %}
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary">Book
+                                                                Ticket</button>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="card3">
-                                                    <div class="card-body3">
-                                                        <h5 class="card-title">Location :</h5>
-                                                        <div class="map_main">
-                                                            <div class="map-responsive">
-                                                                <div class="col-lg-8">
-                                                                    <iframe
-                                                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.1345682278593!2d73.8367231146884!3d18.522820087407744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf80982203c7%3A0xba2ba195e24b828a!2sFergusson%20College%20(Autonomous)%2C%20Pune!5e0!3m2!1sen!2sin!4v1672047671439!5m2!1sen!2sin"
-                                                                        width="600" height="450" style="border: 1px;;"
-                                                                        allowfullscreen="" loading="lazy"
-                                                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
-
                                     </div>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+<div class="container">
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        USER DETAILS</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <form class="row">
+                            <div class="col-md-12">
+                                <label for="inputFullname"
+                                    class="form-label">Full
+                                    Name</label>
+                                <input type="email"
+                                    class="form-control"
+                                    id="inputFullname">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputEmail"
+                                    class="form-label">Email</label>
+                                <input type="email"
+                                    class="form-control"
+                                    id="inputEmail">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputContact"
+                                    class="form-label">Contact</label>
+                                <input type="Contact"
+                                    class="form-control"
+                                    id="inputContact">
+                            </div>
+                            <div class="col-12">
+                                <label
+                                    for="floatingTextarea2">Address</label>
+                                <div class="form-floating">
+                                    <textarea class="form-control"
+                                        placeholder="Address"
+                                        id="floatingTextarea2"
+                                        style="height: 100px">
+    </textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputCity"
+                                    class="form-label">City</label>
+                                <input type="text"
+                                    class="form-control"
+                                    id="inputCity">
+                            </div>
+                            <div class="col-md-5">
+                                <label for="inputState"
+                                    class="form-label">State</label>
+                                <input type="text"
+                                    class="form-control"
+                                    id="inputState">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputPincode"
+                                    class="form-label">Pincode</label>
+                                <input type="text"
+                                    class="form-control"
+                                    id="inputPincode">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="inputMembers"
+                                    class="form-label">Members</label>
+                                <input type="number"
+                                    class="form-control"
+                                    id="inputMembers">
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                        type="checkbox"
+                                        id="gridCheck">
+                                    <label class="form-check-label"
+                                        for="gridCheck">
+                                        *Accept all terms and
+                                        conditions
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col">
+                        <label for="inputAmount"
+                            class="form-label">Amount</label>
+                        <input type="text" class="form-control"
+                            id="inputAmount">
+                    </div>
+                    <button type="button"
+                        class="btn btn-primary">Book Ticket</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

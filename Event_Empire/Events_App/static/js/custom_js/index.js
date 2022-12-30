@@ -64,6 +64,12 @@ function ChangeState(){
 
 
 
+function cardClicked(){
+  elem =  document.getElementById("cardButton")
+  console.log(elem)
+}
+
+
 
 
 function changeAmount(){
