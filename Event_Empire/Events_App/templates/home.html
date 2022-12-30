@@ -11,14 +11,26 @@
   <!-- MDB icon -->
   <link rel="icon" href="{% static 'images/mdb-favicon.ico" type="image/x-icon' %}" />
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' %}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="{% static 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap' %}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
 
   <!-- Custom css -->
   <link rel="stylesheet" href="{% static 'css/custom_css/style.css' %}" />
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+    crossorigin="anonymous"></script>
+
 
   <script src="{%static 'js/custom_js/index.js' %}"></script>
 
@@ -98,44 +110,44 @@
 
 
 
-      
+
       <!-- Glass card start -->
       <div class=" container position-absolute glass-card">
 
-        
+
         <form action="/list/" method="POST">
           {% csrf_token %}
-        <!-- Party type selector start -->
-        <div class="row mt-5">
-          <div class="col-md-12 d-flex justify-content-center">
-            <p class="h5 ">Search for
-              <span>
-                <select class="partyTypeDropDown text-white bg-dark" name="partyTypeSelector" id="partyType"
-                  onchange="changeHomeCharacter(this.value)">
-                  <option value="1" >X-mas</option>
-                  <option value="2">New Year</option>
-                </select>
-               
-              </span> party
-            </p>
+          <!-- Party type selector start -->
+          <div class="row mt-5">
+            <div class="col-md-12 d-flex justify-content-center">
+              <p class="h5 ">Search for
+                <span>
+                  <select class="partyTypeDropDown text-white bg-dark" name="partyTypeSelector" id="partyType"
+                    onchange="changeHomeCharacter(this.value)">
+                    <option value="1">X-mas</option>
+                    <option value="2">New Year</option>
+                  </select>
+
+                </span> party
+              </p>
+            </div>
           </div>
-        </div>
-        <!-- Party type selector end -->
+          <!-- Party type selector end -->
 
-        <!-- Location selector start -->
+          <!-- Location selector start -->
 
-        <div class="row  ">
-          <div class="col-xl-2 col-md-2 ">
-            <!-- Column left blank intentionally -->
-          </div>
+          <div class="row  ">
+            <div class="col-xl-2 col-md-2 ">
+              <!-- Column left blank intentionally -->
+            </div>
 
-          <div class="col-xl-8 col-md-7  col-7 mt-5">
-            <div class="container searchBar py-4 mx-2 ">
-              <div class="row d-flex align-content-around justify-content-around ">
+            <div class="col-xl-8 col-md-7  col-7 mt-5">
+              <div class="container searchBar py-4 mx-2 ">
+                <div class="row d-flex align-content-around justify-content-around ">
 
-                <!-- <p class="h5 text-center col-xl-2">Select State:</p> -->
+                  <!-- <p class="h5 text-center col-xl-2">Select State:</p> -->
 
-                <!-- <form action="/stateSelector/" method="GET">
+                  <!-- <form action="/stateSelector/" method="GET">
                   {% csrf_token %}
                
                  <select onchange="ChangeState()" class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="state" id="stateSelector"
@@ -146,65 +158,65 @@
                   {% endfor %}
 
                 </select>  -->
-              
 
 
-                <!-- <button hidden id="stateButton" type="submit" value=""></button>
+
+                  <!-- <button hidden id="stateButton" type="submit" value=""></button>
               </span>
 
-              </form> --> 
+              </form> -->
 
 
 
 
-                <P class="h5 text-center col-xl-2">Select City:</P>
-                 
-               
-               
-                 <select class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="city" id="stateSelector"
-                  onchange="onStateChange()">
-                  {% for s in data %}
-                  <option name="City"  id="selectedCity" value={{s.City}} >{{s.City}}</option>
-                  {% endfor %}
+                  <P class="h5 text-center col-xl-2">Select City:</P>
 
-                </select> 
-              
-                
-              
-               
 
+
+                  <select class="dropDown text-center text-white col-xl-4 h5 bg-dark " name="city" id="stateSelector"
+                    onchange="onStateChange()">
+                    {% for s in data %}
+                    <option name="City" id="selectedCity" value={{s.City}}>{{s.City}}</option>
+                    {% endfor %}
+
+                  </select>
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Character img start-->
+            <div class="col-xl-2 col-md-3 col-4 position-relative ">
+              <img class="position-absolute " id="homeCharacter" src="{% static 'images/ani1.png' %}" alt="santa"
+                data-original="{% static 'images/ani2.png' %}" style="bottom: -14vh; left: 1vw;">
+            </div>
+            <!-- Character img end-->
+
+
+          </div>
+          <!-- Location selector end -->
+
+          <!-- Search parties button start -->
+          <div class="row my-5">
+            <div class="text-center">
+              <a href="/list"><button class="btn text-dark w-md-25 h4" type="submit" onclick="searchParties()"
+                  style=" background-color: #F4EAD5; border: solid 1px black;">Search parties</button> </a>
             </div>
           </div>
-          </div>
-
-          <!-- Character img start-->
-          <div class="col-xl-2 col-md-3 col-4 position-relative ">
-            <img class="position-absolute " id="homeCharacter" src="{% static 'images/ani1.png' %}" alt="santa" data-original="{% static 'images/ani2.png' %}"
-              style="bottom: -14vh; left: 1vw;">
-          </div>
-          <!-- Character img end-->
+          <!-- Search parties button start -->
 
 
-        </div>
-        <!-- Location selector end -->
-
-        <!-- Search parties button start -->
-        <div class="row my-5">
-          <div class="text-center">
-            <a   
-              href="/list"><button class="btn text-dark w-md-25 h4" type="submit" onclick="searchParties()" style=" background-color: #F4EAD5; border: solid 1px black;">Search parties</button> </a>
-          </div>
-        </div>
-        <!-- Search parties button start -->
-
-     
       </div>
 
       <!-- Glass card end -->
 
-      
 
-    </form>
+
+      </form>
 
 
     </div>
@@ -224,14 +236,16 @@
 
       <div class="row ">
 
-        <div class="col-12 text-white">
+        <div class="col-12 text-dark">
           <div class="row ">
             <h1 class="display-1 text-center ">About us</h1>
           </div>
           <div class="row h5">
             We're on a mission to empower event creators to deliver the best event experiences
-We believe great events start with excellent guest experiences from start to finish. We believe the guest's experience begins well before they attend an event and continues even after it is over.
-Our product makes easy for our guest to trace their events all over India and book events as per their requirement.
+            We believe great events start with excellent guest experiences from start to finish. We believe the guest's
+            experience begins well before they attend an event and continues even after it is over.
+            Our product makes easy for our guest to trace their events all over India and book events as per their
+            requirement.
           </div>
         </div>
 
@@ -243,51 +257,22 @@ Our product makes easy for our guest to trace their events all over India and bo
 
   <!-- About us section end -->
 
+  <!-- Chatbot  -->
+  <div id="parent" style="position: relative;">
+    <img
+      src="https://media.istockphoto.com/id/1010001882/vector/%C3%B0%C3%B0%C2%B5%C3%B1%C3%B0%C3%B1%C3%B1.jpg?s=612x612&w=0&k=20&c=1jeAr9KSx3sG7SKxUPR_j8WPSZq_NIKL0P-MA4F1xRw="
+      alt="Chat with me" id="chatbotimg" class="rounded-circle position-fixed bottom-0 end-0 p-3" width="100"
+      height="100" onclick="showhideimg()">
 
+    <iframe
+      src="https://web.powerva.microsoft.com/environments/5cd8da26-d7df-e0d9-8b0a-72fad15680de/bots/new_bot_8a07d0093d9b4932b1a1b2348a8ada5e/webchat"
+      id="chatwindow" class=" position-fixed bottom-0 end-0 p-3 m-3 glass-card-chatbot "></iframe>
 
-
-
-   {% comment %} <!-- Contact us section start -->
-
-   <div class="shadow-2-soft " id="contact-section">
-    <div class="container " >
-      <div class="row" id="contactus">
-        <h1 class="text-center display-1 text-white">Contact us</h1>
-      </div>
-      <div class="row text-white">
-        <div class="col d-flex justify-content-center">
-          <form  class="mx-2  " style="width: 400px; max-width: 550px;">
-            <div class="mb-2">
-              <label for="exampleInputName" class="form-label text-white">Name</label>
-              <input type="text" class="form-control" id="exampleInputName" name="userName" [(ngModel)]="usrName">
-            </div>
-            <div class="mb-2">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="userEmail" >
-              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div class="mb-2">
-              <label for="exampleInputNumber" class="form-label">Contact No.</label>
-              <input type="number" class="form-control" id="exampleInputNumber" name="userContact" >
-            </div>
-            <div class="mb-2">
-              <label for="exampleMessage" class="form-label">Message.</label>
-              <textarea name="message" id="exampleMessage" class="form-control" style="min-width: 100%"
-                rows="5" ></textarea>
-            </div>
-            <button type="submit" class=" btn btn-outline-dark mb-2 float-end ">Submit</button>
-           
-          </form>
-        </div>
-      </div>
-    </div>
+    <img id="closeimg" class="p-2" style="display: none; position: fixed; right:2%; bottom: 56vh; z-index: 11;"
+      src="https://flaticons.net/icon.php?slug_category=mobile-application&slug_icon=close" alt="Close" width="30"
+      height="30" onclick="showhideimg()">
 
   </div>
-
-  <!-- Contact us section end --> {% endcomment %}
-
-
-
 
 
   <!-- End your project here-->
@@ -313,7 +298,9 @@ Our product makes easy for our guest to trace their events all over India and bo
 
   </script>
 
+
+
+
 </body>
 
-</html> 
-
+</html>

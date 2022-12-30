@@ -85,3 +85,21 @@ function changeAmount(){
 
   console.log(totalAmount)
 }
+
+
+// Chatbot
+function showhideimg() {
+  var img = document.getElementById("chatbotimg");
+  var chatwindow = document.getElementById("chatwindow");
+  var closeimg = document.getElementById("closeimg");
+  if (img.style.display === "none") {
+      img.style.display = "block";
+      chatwindow.style.display = "none";
+      closeimg.style.display = "none"
+  }
+  else {
+      img.style.display = "none";
+      chatwindow.style.display = "block";
+      closeimg.style.display = "block";
+  }
+}
